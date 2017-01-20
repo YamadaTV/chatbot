@@ -16,7 +16,7 @@
 
 <?php
 
-else:
+elseif ($_GET['reply'] == NULL):
 
 $name = $_GET['name'];
 $half_name_length = (int) (mb_strlen($name) / 2);
@@ -29,9 +29,17 @@ $botname = $name_end . $name_beginning;
 <p><strong><?= $botname ?>:</strong> Hej <?= $name ?></p>
 <form>
     <input type="text" name="reply">
-    <input type="hiddem" name="name" value="<? $name ?>">
+    <input type="hidden" name="name" value="<? $name ?>">
     <input type="submit" value="reply">
 </form>
+<?php
+else:
+	$name = $_GET['name'];
+    $botname = $_GET['botname'];
+    $reply = $_GET['reply'];
+?>
+<p><strong><?= $botname ?>:</strong> Hej <?= $name ?></p>
+<p><strong><?= $$name ?>:</strong> Hej <?= $reply ?></p>
 <?php endif ?>
 
 </body>
